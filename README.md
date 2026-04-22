@@ -1,6 +1,6 @@
 # Taller SDD · Favoritos de Skills
 
-**Workspace compartido del Taller 2 SDD** · 25/4/2026 · relay de 8 parejas · proyecto greenfield.
+**Workspace compartido del Taller 2 SDD** · viernes 24/4/2026 · 16:30-18:00 Paraguay · relay de 8 parejas · proyecto greenfield.
 
 ---
 
@@ -45,7 +45,7 @@ docs/
 
 ### Si te trabás
 
-- Slack `#way-of-work` · Alejo responde
+- Slack `#way-of-work` · Juan responde · Alejo observa dinámica
 - Último recurso · escribí algo razonable a mano · se valida en review post-taller
 
 ---
