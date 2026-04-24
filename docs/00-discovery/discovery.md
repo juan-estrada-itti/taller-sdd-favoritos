@@ -49,13 +49,19 @@ Estimación conservadora: **15-25 minutos de overhead por sesión** que no agreg
 **Sala temporal + reveal en tiempo real. Sin login. Sin integración todavía.**
 
 El valor mínimo que debe funcionar esta semana:
-1. Scrum master crea sala → recibe link
+1. Scrum master crea sala → recibe link único
 2. Comparte link al equipo
 3. Todos entran con su nombre (sin crear cuenta)
 4. Votan en secreto (escala Fibonacci: 1, 2, 3, 5, 8, 13, 21, ?)
 5. Moderador revela → todas las cartas aparecen simultáneamente
 6. Si hay consenso → story point acordado visible
-7. Si hay dispersión → se discute, se revota
+7. Si hay dispersión → se discute, se revota (máximo 2 revotos por historia; si no hay consenso, el scrum master asigna el valor)
+
+**Criterios de aceptación del MVP:**
+- La sala expira cuando el moderador la cierra o tras 24h de inactividad
+- Un participante que se conecta tarde ve el estado actual de la sala y puede votar si la ronda sigue abierta
+- El reveal solo se activa si todos votaron O el moderador lo fuerza manualmente
+- Sin persistencia de usuario: salir y volver = nueva entrada con el mismo nombre
 
 La integración con Jira/Linear es **v2**, no MVP.
 
@@ -95,23 +101,6 @@ con estimaciones más calibradas y un backlog siempre actualizado.
    La integración con Jira es v2.
 3. **El objetivo del ejercicio es educativo**: aprender el pipeline SDD end-to-end,
    no construir un startup novel.
-
----
-
-## Contexto técnico (para Pareja 3 · RFC)
-
-Stack default del repo (no definitivo · Pareja 3 puede cambiar):
-- Backend: Node 20 · Express · TypeScript
-- Base de datos: SQLite
-- Frontend: vanilla TS + Tailwind
-- Auth: header `x-user: <nombre>` (sin login real)
-- Real-time: a definir en RFC (Socket.IO, SSE, o WebSockets nativos)
-
-**Decisiones que pertenecen al RFC, no a este discovery:**
-- Protocolo de comunicación real-time
-- Schema de rooms/sessions en SQLite
-- Estrategia de integración con Jira API (OAuth vs. API key)
-- Scope de la capa de IA
 
 ---
 
