@@ -1,6 +1,21 @@
 # PRD · SDD Context Packager para Brownfield
 
-**Status:** DRAFT v2 (PIVOT fundamentado en evidencia del caso AppSec Q1 2026)
+> ## ⚠️ ARCHIVED · 2026-04-24
+>
+> Este PRD fue sometido a auditoría adversarial (cross-model reviewer independiente) y obtuvo **score 4/10** con 4 FAILs + 1 CONCERN fuerte:
+>
+> 1. Contradicción silenciosa con premisa #4 del discovery ("MVP no genera artefactos")
+> 2. Evidencia = N=1 (caso AppSec)
+> 3. Métrica A/B pseudo-científica (N=2, single rater, baseline pendiente)
+> 4. Scope oculto (inferencia de journeys y schemas = programas de comprensión, no parsers)
+> 5. Premisa más frágil: que la inferencia automática alcance calidad de pack hecho a mano en AppSec, sin evidencia piloto
+>
+> **Decisión (2026-04-24):** el pipeline del taller vuelve a fase 1 (discovery). Ver `docs/00-discovery/discovery.md` § "Evolución del entendimiento" para el learning completo. Este PRD queda como evidencia histórica del pivot y su validación adversarial.
+>
+> **Pre-requisito para avanzar al RFC:** (a) entrevista de 30 min con tech lead de academy/ittilab, (b) POC mínimo de inferencia de 1 archivo del pack, ambos documentados.
+
+**Status:** ARCHIVED · superseded by return-to-discovery decision
+**Status previo:** DRAFT v2 (PIVOT fundamentado en evidencia del caso AppSec Q1 2026)
 **Versión:** v0.2 · 2026-04-24
 **Autor:** Juan Estrada (con Claude Opus 4.7 vía `/create-prd`)
 **Supersedes:** PRD v0.1 (health check pasivo · archivado)

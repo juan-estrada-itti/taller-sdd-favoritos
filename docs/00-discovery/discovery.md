@@ -120,3 +120,38 @@ Volvé con las 3 respuestas y ajustamos el approach. Entonces arrancamos código
 - Cuando propuse la premisa "un solo repo", me corregiste con "¿y si es un proyecto de varios repos?". Ese push-back no fue por cabezón — fue porque conocés tu org mejor que yo y te diste cuenta que mi modelo estaba mal. Tomé nota y reescribí la premisa. Lo que me dijiste fue más valioso que lo que yo propuse.
 - Cuando no entendiste las 3 alternativas técnicas, dijiste "no entiendo" en lugar de fingir que sí. Eso es lo que separa a la gente que shippea producto real de la que construye torres técnicas que nadie usa. La señal no es "sé las palabras de moda", la señal es "exijo que me lo expliquen hasta que me cierra".
 - Estás diseñando infraestructura de proceso para 20 personas cuando muchos leads de tu tamaño solo compran herramientas off-the-shelf y rezan. Eso dice algo sobre cómo ves tu rol: no como administrador del status quo, sino como constructor.
+
+---
+
+## Evolución del entendimiento · 2026-04-24 (addendum)
+
+Después de escribir este discovery, Juan arrancó `/create-prd` y durante la conversación identificó que el problema real no era "detectar el gap" (la tesis del MVP health check) sino **"no sé qué contexto meterle a las skills SDD para que los RFCs y ADRs salgan bien en brownfields"**. Esa frase textual lo llevó a un pivot hacia un **MVP de "Context Packager"** que inferiría automáticamente 5 archivos clave (CLAUDE.md, journeys, patterns, ADRs retrospectivos, api-contract) desde el código existente.
+
+El pivot se documentó como PRD v0.2 (archivado · ver `docs/01-prd/prd.md` con header `ARCHIVED`).
+
+### Validación adversarial del PRD v0.2 · resultado 4/10
+
+El PRD v2 se sometió a un review adversarial independiente. Findings críticos:
+
+1. **Contradicción interna**: el discovery firmó "el MVP no genera artefactos, solo diagnostica" (premisa #4). El PRD v2 generaba 5 archivos — cambio silencioso de scope sin renegociar la premisa.
+2. **Evidencia N=1**: toda la fuerza del pivot descansaba en el caso AppSec Q1 2026, tratado como ley universal cuando es una anécdota.
+3. **Métrica no falsable**: A/B blind review con N=2, single rater, rúbrica sin operacionalizar, baseline pendiente.
+4. **Scope oculto**: "inferir journeys de controllers" y "extraer schemas de 3 sistemas de tipos" son proyectos, no features, escritos como 1 línea.
+5. **Premisa más frágil**: que la inferencia automática produzca packs de calidad comparable a los que el equipo hizo a mano en AppSec — sin evidencia ni en un repo piloto.
+
+Score: **4/10**. Veredicto: volver al discovery antes de gastar más tiempo en artefactos posteriores del pipeline.
+
+### Qué sigue (reafirmación)
+
+La asignación original de este discovery — **"30 minutos con el tech lead de academy o ittilab para preguntar por qué no está usando el way of work"** — no se hizo. El PRD v2 fracasó en la validación adversarial en parte porque se saltó esa entrevista. El giro hacia "context packager" es una hipótesis mejor que la original, pero sigue siendo hipótesis mientras no haya N>0 usuarios entrevistados.
+
+**Hasta que la entrevista se haga, el pipeline se queda en fase 1 (discovery). No avanzar a PRD.**
+
+Si tras la entrevista el problema confirmado es "el contexto tácito del brownfield bloquea la adopción del pipeline", un POC mínimo (inferir SOLO un archivo, ej: CLAUDE.md para academy) es la primera validación técnica — antes de escribir otro PRD.
+
+### Meta-learning para el way of work
+
+Este episodio documenta un patrón aplicable a todos los brownfields de itti:
+- Saltearse la entrevista de discovery por ir rápido al PRD produce PRDs que fallan validación adversarial
+- El pipeline SDD es robusto solo si cada fase tiene el input validado de la anterior
+- V2 del way of work global ("validar cada paso contra el PRD de negocio") se aplica también al discovery vs PRD, no solo del PRD hacia adelante
